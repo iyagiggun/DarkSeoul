@@ -1,16 +1,35 @@
 import darkseoul from '../../../..'
 
-const WIDTH = 32
-const HEIGHT = 56
+const UNIT = 64
+const COLLISION_AREA = { x: 16, y: 50, w: 32, h: 14 }
 
-export default darkseoul.createObject('CEO', {
+export default darkseoul.createCharacter('CEO', {
   imgUrl: '/assets/object/office/character/CEO/sprite.png',
   spriteInfoMap: {
     default: {
-      down: {
-        areaList: new Array(4)
+      up: {
+        areaList: new Array(9)
           .fill(null)
-          .map((_, idx) => [WIDTH * idx, 0, WIDTH, HEIGHT])
+          .map((_, idx) => ({ x: UNIT * idx, y: UNIT * 8, w: UNIT, h: UNIT })),
+        collisionArea: COLLISION_AREA
+      },
+      down: {
+        areaList: new Array(9)
+          .fill(null)
+          .map((_, idx) => ({ x: UNIT * idx, y: UNIT * 10, w: UNIT, h: UNIT })),
+        collisionArea: COLLISION_AREA
+      },
+      left: {
+        areaList: new Array(9)
+          .fill(null)
+          .map((_, idx) => ({ x: UNIT * idx, y: UNIT * 9, w: UNIT, h: UNIT })),
+        collisionArea: COLLISION_AREA
+      },
+      right: {
+        areaList: new Array(9)
+          .fill(null)
+          .map((_, idx) => ({ x: UNIT * idx, y: UNIT * 11, w: UNIT, h: UNIT })),
+        collisionArea: COLLISION_AREA
       }
     }
   }
