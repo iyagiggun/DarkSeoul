@@ -1,3 +1,3 @@
 import darkseoul from '.'
 
-export default darkseoul.createDirector()
+export default darkseoul.create_director()

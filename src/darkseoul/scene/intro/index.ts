@@ -11,16 +11,24 @@ const tiles1D = tiles.flatMap(i => i)
 const walls = createWalls()
 const partitions = getPartitions()
 
+Ash.set_position(396, 82)
+Ash.change_direction('left')
+SeoulFire.set_position(360, 64)
+RyuDahee.set_position(32, 200)
+
 const objectList = [
   ...tiles1D,
   ...walls,
   ...partitions,
   CEO,
-  Ash.setPos(396, 82).setDirection('left'),
-  SeoulFire.setPos(360, 64),
-  RyuDahee.setPos(32, 200)
+  Ash,
+  SeoulFire,
+  RyuDahee
 ]
 
-const intro = darkseoul.createScene('intro', objectList)
+const intro = darkseoul.create_scene({
+  name: 'intro',
+  object_list: objectList
+})
 
 export default intro
