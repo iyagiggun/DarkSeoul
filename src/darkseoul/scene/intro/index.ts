@@ -31,4 +31,35 @@ const intro = darkseoul.create_scene({
   object_list: objectList
 })
 
+const pr1 = async () => {
+  await new Promise<void>((resolve) => {
+    setTimeout(() => {
+      console.error('pr1')
+      resolve()
+    }, 2000)
+  })
+}
+const pr2 = async () => {
+  await new Promise<void>((resolve) => {
+    setTimeout(() => {
+      console.error('pr2')
+      resolve()
+    }, 2000)
+  })
+}
+const pr3 = async () => {
+  await new Promise<void>((resolve) => {
+    setTimeout(() => {
+      console.error('pr3')
+      resolve()
+    }, 1000)
+  })
+}
+
+intro.add_take_list([
+  pr1,
+  pr2,
+  pr3
+])
+
 export default intro
