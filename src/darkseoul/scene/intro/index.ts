@@ -31,35 +31,22 @@ const intro = darkseoul.create_scene({
   object_list: objectList
 })
 
-const pr1 = async () => {
-  await new Promise<void>((resolve) => {
-    setTimeout(() => {
-      console.error('pr1')
-      resolve()
-    }, 2000)
-  })
-}
-const pr2 = async () => {
-  await new Promise<void>((resolve) => {
-    setTimeout(() => {
-      console.error('pr2')
-      resolve()
-    }, 2000)
-  })
-}
-const pr3 = async () => {
-  await new Promise<void>((resolve) => {
-    setTimeout(() => {
-      console.error('pr3')
-      resolve()
-    }, 1000)
-  })
-}
+intro.add_take(
+  async () => {
+    intro.remove_object(CEO)
 
-intro.add_take_list([
-  pr1,
-  pr2,
-  pr3
-])
+    // 두리번
+    RyuDahee.change_direction('up')
+    await intro.wait(0.5)
+    RyuDahee.change_direction('left')
+    await intro.wait(0.5)
+    RyuDahee.change_direction('down')
+    await intro.wait(0.5)
+    RyuDahee.change_direction('right')
+    await intro.wait(0.5)
+
+    intro.add_object(CEO)
+  }
+)
 
 export default intro
