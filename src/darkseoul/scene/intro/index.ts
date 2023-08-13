@@ -45,6 +45,8 @@ intro.add_take(
     RyuDahee.change_direction('right')
     await intro.wait(0.5)
 
+    await intro.show_message(RyuDahee, '사장..님....? ... 안계시나..요?')
+
     intro.add_object(CEO)
   }
 )

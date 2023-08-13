@@ -5,7 +5,10 @@ const HEIGHT = 56
 
 const RyuDahee = darkseoul.create_character({
   name: '류다희',
-  img_url: '/assets/object/main/RyuDahee/sprite.png',
+  photo_map: {
+    default: '/assets/object/main/RyuDahee/photo.png'
+  },
+  sprite_url: '/assets/object/main/RyuDahee/sprite.png',
   sprite_info_map: {
     default: {
       up: {

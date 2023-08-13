@@ -5,7 +5,7 @@ const COLLISION_AREA = { x: 16, y: 50, w: 32, h: 14 }
 
 export default darkseoul.create_character({
   name: 'CEO',
-  img_url: '/assets/object/office/character/CEO/sprite.png',
+  sprite_url: '/assets/object/office/character/CEO/sprite.png',
   sprite_info_map: {
     default: {
       up: {

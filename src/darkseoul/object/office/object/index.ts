@@ -6,7 +6,7 @@ const SPRITE_URL = '/assets/object/office/sprite.png'
 export function createOfficeShortDesk (x: number, y: number, dir: Direction) {
   const i = darkseoul.create_object({
     name: `office:shortdesk:${x},${y}:${dir}`,
-    img_url: SPRITE_URL,
+    sprite_url: SPRITE_URL,
     sprite_info_map: {
       default: {
         down: {
@@ -26,7 +26,7 @@ export function createOfficeShortDesk (x: number, y: number, dir: Direction) {
 export function createOfficeChair (x: number, y: number, dir: Direction) {
   const i = darkseoul.create_object({
     name: `office:chair:${x},${y}:${dir}`,
-    img_url: SPRITE_URL,
+    sprite_url: SPRITE_URL,
     sprite_info_map: {
       default: {
         up: {
@@ -57,7 +57,7 @@ export function createOfficeChair (x: number, y: number, dir: Direction) {
 export function createOfficeArmChair (x: number, y: number, dir: Direction = 'down') {
   const i = darkseoul.create_object({
     name: `office:arm-chair:${x},${y}:${dir}`,
-    img_url: SPRITE_URL,
+    sprite_url: SPRITE_URL,
     sprite_info_map: {
       default: {
         up: {
@@ -85,7 +85,7 @@ export function createOfficeArmChair (x: number, y: number, dir: Direction = 'do
 export function createFireExtinguisher (x: number, y: number) {
   const i = darkseoul.create_object({
     name: `office:fire-extinguisher:${x},${y}`,
-    img_url: SPRITE_URL,
+    sprite_url: SPRITE_URL,
     sprite_info_map: {
       default: {
         down: {

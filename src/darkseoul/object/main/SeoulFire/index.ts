@@ -5,7 +5,7 @@ const HEIGHT = 44
 
 const SeoulFire = darkseoul.create_object({
   name: '서울의 불',
-  img_url: '/assets/object/main/SeoulFire/sprite.png',
+  sprite_url: '/assets/object/main/SeoulFire/sprite.png',
   sprite_info_map: {
     default: {
       down: {

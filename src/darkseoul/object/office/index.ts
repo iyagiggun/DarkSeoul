@@ -5,7 +5,7 @@ const SPRITE_URL = '/assets/object/office/sprite.png'
 export function createOfficeTile (x: number, y: number) {
   const i = darkseoul.create_tile({
     name: `office:tile:[${x},${y}]`,
-    img_url: SPRITE_URL,
+    sprite_url: SPRITE_URL,
     sprite_info_map: {
       default: {
         down: {
@@ -22,7 +22,7 @@ export function createOfficeWallNW (x: number, y: number) {
   const i = darkseoul.create_object({
     name:
       `office:wall:north:[${x},${y}]`,
-    img_url: SPRITE_URL,
+    sprite_url: SPRITE_URL,
     sprite_info_map: {
       default: {
         down: {
@@ -39,7 +39,7 @@ export function createOfficeWallNW (x: number, y: number) {
 export function createOfficeWallN (x: number, y: number) {
   const i = darkseoul.create_object({
     name: `office:wall:north:[${x},${y}]`,
-    img_url: SPRITE_URL,
+    sprite_url: SPRITE_URL,
     sprite_info_map: {
       default: {
         down: {
@@ -55,7 +55,7 @@ export function createOfficeWallN (x: number, y: number) {
 export function createOfficeWallNE (x: number, y: number) {
   const i = darkseoul.create_object({
     name: `office:wall:north:[${x},${y}]`,
-    img_url: SPRITE_URL,
+    sprite_url: SPRITE_URL,
     sprite_info_map: {
       default: {
         down: {
@@ -71,7 +71,7 @@ export function createOfficeWallNE (x: number, y: number) {
 export function createOfficeWallE (x: number, y: number) {
   const i = darkseoul.create_object({
     name: `office:wall:north:[${x},${y}]`,
-    img_url: SPRITE_URL,
+    sprite_url: SPRITE_URL,
     sprite_info_map: {
       default: {
         down: {
@@ -88,7 +88,7 @@ export function createOfficeWallE (x: number, y: number) {
 export function createOfficeWallSE (x: number, y: number) {
   const i = darkseoul.create_object({
     name: `office:wall:north:[${x},${y}]`,
-    img_url: SPRITE_URL,
+    sprite_url: SPRITE_URL,
     sprite_info_map: {
       default: {
         down: {
@@ -105,7 +105,7 @@ export function createOfficeWallSE (x: number, y: number) {
 export function createOfficeWallS (x: number, y: number) {
   const i = darkseoul.create_object({
     name: `office:wall:north:[${x},${y}]`,
-    img_url: SPRITE_URL,
+    sprite_url: SPRITE_URL,
     sprite_info_map: {
       default: {
         down: {
@@ -122,7 +122,7 @@ export function createOfficeWallS (x: number, y: number) {
 export function createOfficeWallSW (x: number, y: number) {
   const i = darkseoul.create_object({
     name: `office:wall:north:[${x},${y}]`,
-    img_url: SPRITE_URL,
+    sprite_url: SPRITE_URL,
     sprite_info_map: {
       default: {
         down: {
@@ -139,7 +139,7 @@ export function createOfficeWallSW (x: number, y: number) {
 export function createOfficeWallW (x: number, y: number) {
   const i = darkseoul.create_object({
     name: `office:wall:north:[${x},${y}]`,
-    img_url: SPRITE_URL,
+    sprite_url: SPRITE_URL,
     sprite_info_map: {
       default: {
         down: {
