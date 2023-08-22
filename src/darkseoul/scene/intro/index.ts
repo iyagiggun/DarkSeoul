@@ -54,9 +54,9 @@ intro.add_take(
     await intro.show_message(RyuDahee, '어..? 근데 저건.. 뭐지..?')
 
     // // 불 보기
-    // await Intro.moveCamera(BonFire, 2);
-    // await Intro.wait(2);
-    // await Intro.moveCamera(DaheeYoo, 2);
+    await intro.focus(SeoulFire, 2)
+    await intro.wait(2)
+    await intro.focus(RyuDahee, 2)
 
     // // 불쪽으로 이동
     // await Intro.moveCharacter(DaheeYoo, [32, 82], 3, true);
