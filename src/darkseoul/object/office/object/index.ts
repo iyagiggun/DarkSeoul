@@ -18,7 +18,7 @@ export function createOfficeShortDesk (x: number, y: number, dir: Direction) {
       }
     }
   })
-  i.change_direction(dir)
+  i.set_direction(dir)
   i.set_position(x, y)
   return i
 }
@@ -48,7 +48,7 @@ export function createOfficeChair (x: number, y: number, dir: Direction) {
       }
     }
   })
-  i.change_direction(dir)
+  i.set_direction(dir)
   i.set_position(x, y)
 
   return i
@@ -76,7 +76,7 @@ export function createOfficeArmChair (x: number, y: number, dir: Direction = 'do
     }
   })
 
-  i.change_direction(dir)
+  i.set_direction(dir)
   i.set_position(x, y)
 
   return i

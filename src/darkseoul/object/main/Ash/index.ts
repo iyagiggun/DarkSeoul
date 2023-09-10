@@ -5,6 +5,9 @@ const HEIGHT = 56
 
 const Ash = darkseoul.create_character({
   name: '하얀 잿빛의 여인',
+  photo_map: {
+    default: '/assets/object/main/Ash/photo.png'
+  },
   sprite_url: '/assets/object/main/Ash/sprite.png',
   sprite_info_map: {
     default: {
