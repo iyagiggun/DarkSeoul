@@ -1,7 +1,7 @@
-import intro from './darkseoul/scene/intro'
+import intro from './darkseoul/scene/intro';
 
 function init () {
-  intro.play()
+  intro.play();
 }
 
-init()
+init();

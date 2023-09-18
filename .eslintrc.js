@@ -3,16 +3,40 @@ module.exports = {
         "browser": true,
         "es2021": true
     },
-    "extends": "standard-with-typescript",
-    "overrides": [],
-    "ignorePatterns": [".eslintrc.js", "webpack.config.js"],
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "ecmaVersion": "latest",
         "sourceType": "module",
-        "project": ['./tsconfig.json']
+        "project": ["./tsconfig.json"]
     },
+    "plugins": [
+        "@typescript-eslint"
+    ],
     "rules": {
-        "@typescript-eslint/explicit-function-return-type": "off",
-        "@typescript-eslint/restrict-template-expressions": "off",
+        "indent": [
+            "error",
+            2
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ],
+        "no-trailing-spaces": "error",
+        "no-multi-spaces": "error",
+        "no-multiple-empty-lines": ["error", { "max": 1 }],
+        "no-irregular-whitespace": "error",
+        "no-whitespace-before-property": "error"
     }
 }
