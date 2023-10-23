@@ -1,11 +1,11 @@
-import { createCharacter } from 'iyagi/dist/object/character';
+import ICharacter from 'iyagi/object/character';
 
 const WIDTH = 32;
 const HEIGHT = 56;
 
-const Ash = createCharacter({
+const Ash = ICharacter.create({
   name: '하얀 잿빛의 여인',
-  photo_map: {
+  photoMap: {
     default: '/assets/object/main/Ash/photo.png'
   },
   sprite:{

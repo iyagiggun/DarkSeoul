@@ -1,9 +1,11 @@
-import { createCharacter } from 'iyagi/dist/object/character';
+// import { createCharacter } from 'iyagi/dist/object/character';
+
+import ICharacter from 'iyagi/object/character';
 
 const UNIT = 64;
 const collision = { x: 16, y: 50, w: 32, h: 14 };
 
-export default createCharacter({
+export default ICharacter.create({
   name: 'CEO',
   sprite:{
     url: '/assets/object/office/character/CEO/sprite.png',

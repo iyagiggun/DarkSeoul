@@ -1,11 +1,13 @@
-import { createCharacter } from 'iyagi/dist/object/character';
+// import ICharacter from 'iyagi/object/character';
+
+import ICharacter from 'iyagi/object/character';
 
 const WIDTH = 32;
 const HEIGHT = 56;
 
-const RyuDahee = createCharacter({
+const RyuDahee = ICharacter.create({
   name: '류다희',
-  photo_map: {
+  photoMap: {
     default: '/assets/object/main/RyuDahee/photo.png'
   },
   sprite: {

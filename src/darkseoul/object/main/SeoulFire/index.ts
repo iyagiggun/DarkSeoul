@@ -1,9 +1,9 @@
-import { createObject } from 'iyagi/dist/object';
+import IObject from 'iyagi/object';
 
 const WIDTH = 32;
 const HEIGHT = 44;
 
-const SeoulFire = createObject({
+const SeoulFire = IObject.create({
   name: '서울의 불',
   sprite: {
     url: '/assets/object/main/SeoulFire/sprite.png',

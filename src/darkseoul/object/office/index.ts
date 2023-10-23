@@ -1,9 +1,10 @@
-import darkseoul from '../..';
+import IObject from 'iyagi/object';
+import ITile from 'iyagi/object/tile';
 
 const SPRITE_URL = '/assets/object/office/sprite.png';
 
 export function createOfficeTile (x: number, y: number) {
-  const i = darkseoul.createTile({
+  const i = ITile.create({
     name: `office:tile:[${x},${y}]`,
     sprite:{
       url: SPRITE_URL,
@@ -21,7 +22,7 @@ export function createOfficeTile (x: number, y: number) {
 }
 
 export function createOfficeWallNW (x: number, y: number) {
-  const i = darkseoul.createObject({
+  const i = IObject.create({
     name:
       `office:wall:nw:[${x},${y}]`,
     sprite: {
@@ -41,7 +42,7 @@ export function createOfficeWallNW (x: number, y: number) {
 }
 
 export function createOfficeWallN (x: number, y: number) {
-  const i = darkseoul.createObject({
+  const i = IObject.create({
     name: `office:wall:n:[${x},${y}]`,
     sprite: {
       url: SPRITE_URL,
@@ -60,7 +61,7 @@ export function createOfficeWallN (x: number, y: number) {
 }
 
 export function createOfficeWallNE (x: number, y: number) {
-  const i = darkseoul.createObject({
+  const i = IObject.create({
     name: `office:wall:ne:[${x},${y}]`,
     sprite: {
       url: SPRITE_URL,
@@ -79,7 +80,7 @@ export function createOfficeWallNE (x: number, y: number) {
 }
 
 export function createOfficeWallE (x: number, y: number) {
-  const i = darkseoul.createObject({
+  const i = IObject.create({
     name: `office:wall:e:[${x},${y}]`,
     sprite:
     {url: SPRITE_URL,
@@ -98,7 +99,7 @@ export function createOfficeWallE (x: number, y: number) {
 }
 
 export function createOfficeWallSE (x: number, y: number) {
-  const i = darkseoul.createObject({
+  const i = IObject.create({
     name: `office:wall:se:[${x},${y}]`,
     sprite: {
       url: SPRITE_URL,
@@ -117,7 +118,7 @@ export function createOfficeWallSE (x: number, y: number) {
 }
 
 export function createOfficeWallS (x: number, y: number) {
-  const i = darkseoul.createObject({
+  const i = IObject.create({
     name: `office:wall:s:[${x},${y}]`,
     sprite: {
       url: SPRITE_URL,
@@ -136,7 +137,7 @@ export function createOfficeWallS (x: number, y: number) {
 }
 
 export function createOfficeWallSW (x: number, y: number) {
-  const i = darkseoul.createObject({
+  const i = IObject.create({
     name: `office:wall:sw:[${x},${y}]`,
     sprite:
     {url: SPRITE_URL,
@@ -155,7 +156,7 @@ export function createOfficeWallSW (x: number, y: number) {
 }
 
 export function createOfficeWallW (x: number, y: number) {
-  const i = darkseoul.createObject({
+  const i = IObject.create({
     name: `office:wall:w:[${x},${y}]`,
     sprite:{
       url: SPRITE_URL,

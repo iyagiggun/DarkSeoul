@@ -1,10 +1,11 @@
-import { type Direction } from 'iyagi';
-import { createObject } from 'iyagi/dist/object';
+import IObject from 'iyagi/object';
+
+type Direction = 'up' | 'down' | 'left' | 'right';
 
 const SPRITE_URL = '/assets/object/office/sprite.png';
 
 export function createOfficeShortDesk (x: number, y: number, dir: Direction) {
-  const i = createObject({
+  const i = IObject.create({
     name: `office:shortdesk:${x},${y}:${dir}`,
     sprite:{
       url: SPRITE_URL,
@@ -26,7 +27,7 @@ export function createOfficeShortDesk (x: number, y: number, dir: Direction) {
 }
 
 export function createOfficeChair (x: number, y: number, dir: Direction) {
-  const i = createObject({
+  const i = IObject.create({
     name: `office:chair:${x},${y}:${dir}`,
     sprite:{
       url: SPRITE_URL,
@@ -59,7 +60,7 @@ export function createOfficeChair (x: number, y: number, dir: Direction) {
 }
 
 export function createOfficeArmChair (x: number, y: number, dir: Direction = 'down') {
-  const i = createObject({
+  const i = IObject.create({
     name: `office:arm-chair:${x},${y}:${dir}`,
     sprite:{
       url: SPRITE_URL,
@@ -89,7 +90,7 @@ export function createOfficeArmChair (x: number, y: number, dir: Direction = 'do
 }
 
 export function createFireExtinguisher (x: number, y: number) {
-  const i = createObject({
+  const i = IObject.create({
     name: `office:fire-extinguisher:${x},${y}`,
     sprite:{
       url: SPRITE_URL,
