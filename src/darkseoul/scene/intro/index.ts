@@ -1,12 +1,11 @@
 import IScene from 'iyagi/scene';
-import darkseoul from '../..';
-console.debug(1, darkseoul);
 import Ash from '../../object/main/Ash';
 import RyuDahee from '../../object/main/RyuDahee';
 import SeoulFire from '../../object/main/SeoulFire';
 import CEO from '../../object/office/character/CEO';
 import { createFireExtinguisher } from '../../object/office/object';
 import { createTiles, createWalls, getPartitions } from './map';
+import { IBasicNAI } from 'iyagi/nai';
 
 const tiles = createTiles();
 const tiles1D = tiles.flatMap(i => i);
@@ -67,27 +66,27 @@ intro.addTake(
     await intro.focus(RyuDahee, 2);
 
     // 불쪽으로 이동
-    await intro.moveObject(RyuDahee, 32, 82, { speed: 3, focusing: true });
-    await intro.moveObject(RyuDahee, 260, 82, { speed: 3, focusing: true });
+    await intro.moveObject(RyuDahee, { x: 32, y: 82 }, { speed: 3, focusing: true });
+    await intro.moveObject(RyuDahee, { x: 260, y:82 }, { speed: 3, focusing: true });
     await intro.showMessage(RyuDahee, '아니 누구신데 여기서..');
     await intro.showMessage(RyuDahee, '꺄악! 불이다!!');
 
     // 허둥지둥
-    await intro.moveObject(RyuDahee, 270, 82, { speed: 3, focusing: true });
+    await intro.moveObject(RyuDahee, { x:270, y:82 }, { speed: 3, focusing: true });
     await intro.wait(0.1);
-    await intro.moveObject(RyuDahee, 250, 82, { speed: 3, focusing: true });
+    await intro.moveObject(RyuDahee, { x: 250, y: 82 }, { speed: 3, focusing: true });
     await intro.wait(0.1);
-    await intro.moveObject(RyuDahee, 270, 82, { speed: 3, focusing: true });
+    await intro.moveObject(RyuDahee, { x: 270, y:82 }, { speed: 3, focusing: true });
     await intro.wait(0.1);
-    await intro.moveObject(RyuDahee, 250, 82, { speed: 3, focusing: true });
+    await intro.moveObject(RyuDahee, { x: 250, y: 82 }, { speed: 3, focusing: true });
     await intro.wait(0.1);
-    await intro.moveObject(RyuDahee, 270, 82, { speed: 3, focusing: true });
+    await intro.moveObject(RyuDahee, { x: 270, y: 82 }, { speed: 3, focusing: true });
     await intro.wait(0.1);
-    await intro.moveObject(RyuDahee, 250, 82, { speed: 3, focusing: true });
+    await intro.moveObject(RyuDahee, { x: 250, y:82 }, { speed: 3, focusing: true });
     await intro.wait(0.1);
 
     // 커피 쏟기
-    await intro.moveObject(RyuDahee, 326, 82, { speed: 3, focusing: true });
+    await intro.moveObject(RyuDahee, { x: 326, y:82 }, { speed: 3, focusing: true });
     await intro.showMessage(RyuDahee, '[손에 들고 있는 커피를 쏟았다]');
     await intro.wait(1);
     await intro.showMessage(Ash, '이 불은 Seoul 의 불..');
@@ -95,13 +94,13 @@ intro.addTake(
     await intro.showMessage(RyuDahee, '(으아아!! 뭐라는거야? 당황하면 안돼! 그래! 소화기! 소화기를 찾아야해!)');
 
     // 소화기 보고 가져오기
-    await intro.moveObject(RyuDahee, 270, 82, { speed: 3, focusing: true });
+    await intro.moveObject(RyuDahee, { x:270, y:82 }, { speed: 3, focusing: true });
     await intro.showMessage(RyuDahee, '소화기!');
-    await intro.moveObject(RyuDahee, 32, 82, { speed: 3, focusing: true });
+    await intro.moveObject(RyuDahee, { x:32, y:82 }, { speed: 3, focusing: true });
     await intro.wait(0.2);
     intro.removeObject(fe);
     await intro.wait(0.2);
-    await intro.moveObject(RyuDahee, 326, 82, { speed: 3, focusing: true });
+    await intro.moveObject(RyuDahee, { x:326, y:82 }, { speed: 3, focusing: true });
     await intro.showMessage(RyuDahee, '[소화기를 사용하였다]');
     await intro.showMessage(RyuDahee, '제일인산암모늄을 끼얹어 주마!!');
     await intro.wait(1);
@@ -139,6 +138,7 @@ intro.addTake(
     await intro.showMessage(RyuDahee, '(자꾸 무슨 정신나간 헛소리야? 잠깐.. 저 개떡같은 머리! 구리구리한 바지! 사장이잖아??)');
     await intro.showMessage(Ash, '미약한 Seoul 조차 가지지 못한 지금의 당신은 상대할 수 없습니다.');
 
+    IBasicNAI.control({ scene: intro, controlled: CEO, target: RyuDahee });
     intro.control(RyuDahee);
   }
 );
