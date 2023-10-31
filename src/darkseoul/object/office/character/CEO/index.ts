@@ -1,13 +1,13 @@
 // import { createCharacter } from 'iyagi/dist/object/character';
 
-import ICharacter from 'iyagi/object/character';
+import { Character } from '../../../character'
 
-const UNIT = 64;
-const collision = { x: 16, y: 50, w: 32, h: 14 };
+const UNIT = 64
+const collision = { x: 16, y: 50, w: 32, h: 14 }
 
-export default ICharacter.create({
+export default Character.create({
   name: 'CEO',
-  sprite:{
+  sprite: {
     url: '/assets/object/office/character/CEO/sprite.png',
     motions: {
       default: {
@@ -15,27 +15,27 @@ export default ICharacter.create({
           areaList: new Array(9)
             .fill(null)
             .map((_, idx) => ({ x: UNIT * idx, y: UNIT * 8, w: UNIT, h: UNIT })),
-          collision: collision
+          collision
         },
         down: {
           areaList: new Array(9)
             .fill(null)
             .map((_, idx) => ({ x: UNIT * idx, y: UNIT * 10, w: UNIT, h: UNIT })),
-          collision: collision
+          collision
         },
         left: {
           areaList: new Array(9)
             .fill(null)
             .map((_, idx) => ({ x: UNIT * idx, y: UNIT * 9, w: UNIT, h: UNIT })),
-          collision: collision
+          collision
         },
         right: {
           areaList: new Array(9)
             .fill(null)
             .map((_, idx) => ({ x: UNIT * idx, y: UNIT * 11, w: UNIT, h: UNIT })),
-          collision: collision
+          collision
         }
       }
     }
   }
-});
+})

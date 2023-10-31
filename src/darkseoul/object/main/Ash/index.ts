@@ -1,14 +1,14 @@
-import ICharacter from 'iyagi/object/character';
+import { CharacterClass } from '../../character'
 
-const WIDTH = 32;
-const HEIGHT = 56;
+const WIDTH = 32
+const HEIGHT = 56
 
-const Ash = ICharacter.create({
+const Ash = new CharacterClass({
   name: '하얀 잿빛의 여인',
   photoMap: {
     default: '/assets/object/main/Ash/photo.png'
   },
-  sprite:{
+  sprite: {
     url: '/assets/object/main/Ash/sprite.png',
     motions: {
       default: {
@@ -39,6 +39,6 @@ const Ash = ICharacter.create({
       }
     }
   }
-});
+})
 
-export default Ash;
+export default Ash
