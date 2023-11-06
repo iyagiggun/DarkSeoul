@@ -9,7 +9,7 @@ export function createOfficeShortDesk (x: number, y: number, dir: Direction) {
     name: `office:shortdesk:${x},${y}:${dir}`,
     sprite: {
       url: SPRITE_URL,
-      actions: {
+      motions: {
         default: {
           down: {
             areaList: [{ x: 0, y: 224, w: 50, h: 40 }]
@@ -31,7 +31,7 @@ export function createOfficeChair (x: number, y: number, dir: Direction) {
     name: `office:chair:${x},${y}:${dir}`,
     sprite: {
       url: SPRITE_URL,
-      actions: {
+      motions: {
         default: {
           up: {
             areaList: [{ x: 32, y: 270, w: 16, h: 32 }],
@@ -64,7 +64,7 @@ export function createOfficeArmChair (x: number, y: number, dir: Direction = 'do
     name: `office:arm-chair:${x},${y}:${dir}`,
     sprite: {
       url: SPRITE_URL,
-      actions: {
+      motions: {
         default: {
           up: {
             areaList: [{ x: 0, y: 302, w: 32, h: 28 }],
@@ -94,7 +94,7 @@ export function createFireExtinguisher (x: number, y: number) {
     name: `office:fire-extinguisher:${x},${y}`,
     sprite: {
       url: SPRITE_URL,
-      actions: {
+      motions: {
         default: {
           down: {
             areaList: [{ x: 0, y: 338, w: 10, h: 18 }]

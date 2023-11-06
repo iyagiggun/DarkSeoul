@@ -10,7 +10,7 @@ const Ash = new CharacterClass({
   },
   sprite: {
     url: '/assets/object/main/Ash/sprite.png',
-    actions: {
+    motions: {
       default: {
         up: {
           areaList: new Array(4)

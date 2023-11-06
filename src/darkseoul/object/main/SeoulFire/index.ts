@@ -7,7 +7,7 @@ const SeoulFire = IObject.create({
   name: '서울의 불',
   sprite: {
     url: '/assets/object/main/SeoulFire/sprite.png',
-    actions: {
+    motions: {
       default: {
         down: {
           areaList: new Array(4)

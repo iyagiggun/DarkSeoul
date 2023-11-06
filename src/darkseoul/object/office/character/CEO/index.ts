@@ -9,7 +9,7 @@ const CEO = Character.create({
   name: 'CEO',
   sprite: {
     url: '/assets/object/office/character/CEO/sprite.png',
-    actions: {
+    motions: {
       default: {
         up: {
           areaList: new Array(9)
@@ -70,8 +70,8 @@ const CEO = Character.create({
           collision
         },
         loop: false,
-        onAction: (frameId) => {
-          console.debug(frameId)
+        onMotionPlaying: (frameIdx) => {
+          console.debug(frameIdx)
         }
       }
     }
@@ -79,7 +79,7 @@ const CEO = Character.create({
 })
 
 export const ceoBite = () => {
-  CEO.action('bite')
+  CEO.changeMotion('bite')
   CEO.play()
 }
 

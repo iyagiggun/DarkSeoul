@@ -8,7 +8,7 @@ export function createOfficeTile (x: number, y: number) {
     name: `office:tile:[${x},${y}]`,
     sprite: {
       url: SPRITE_URL,
-      actions: {
+      motions: {
         default: {
           down: {
             areaList: [{ x: 0, y: 0, w: 32, h: 32 }]
@@ -27,7 +27,7 @@ export function createOfficeWallNW (x: number, y: number) {
       `office:wall:nw:[${x},${y}]`,
     sprite: {
       url: SPRITE_URL,
-      actions: {
+      motions: {
         default: {
           down: {
             areaList: [{ x: 0, y: 64, w: 32, h: 64 }],
@@ -46,7 +46,7 @@ export function createOfficeWallN (x: number, y: number) {
     name: `office:wall:n:[${x},${y}]`,
     sprite: {
       url: SPRITE_URL,
-      actions: {
+      motions: {
         default: {
           down: {
             areaList: [{ x: 32, y: 64, w: 32, h: 64 }],
@@ -65,7 +65,7 @@ export function createOfficeWallNE (x: number, y: number) {
     name: `office:wall:ne:[${x},${y}]`,
     sprite: {
       url: SPRITE_URL,
-      actions: {
+      motions: {
         default: {
           down: {
             areaList: [{ x: 64, y: 64, w: 32, h: 64 }],
@@ -85,7 +85,7 @@ export function createOfficeWallE (x: number, y: number) {
     sprite:
     {
       url: SPRITE_URL,
-      actions: {
+      motions: {
         default: {
           down: {
             areaList: [{ x: 64, y: 128, w: 32, h: 32 }],
@@ -104,7 +104,7 @@ export function createOfficeWallSE (x: number, y: number) {
     name: `office:wall:se:[${x},${y}]`,
     sprite: {
       url: SPRITE_URL,
-      actions: {
+      motions: {
         default: {
           down: {
             areaList: [{ x: 64, y: 160, w: 32, h: 64 }],
@@ -123,7 +123,7 @@ export function createOfficeWallS (x: number, y: number) {
     name: `office:wall:s:[${x},${y}]`,
     sprite: {
       url: SPRITE_URL,
-      actions: {
+      motions: {
         default: {
           down: {
             areaList: [{ x: 2, y: 160, w: 32, h: 64 }],
@@ -143,7 +143,7 @@ export function createOfficeWallSW (x: number, y: number) {
     sprite:
     {
       url: SPRITE_URL,
-      actions: {
+      motions: {
         default: {
           down: {
             areaList: [{ x: 0, y: 160, w: 32, h: 64 }],
@@ -162,7 +162,7 @@ export function createOfficeWallW (x: number, y: number) {
     name: `office:wall:w:[${x},${y}]`,
     sprite: {
       url: SPRITE_URL,
-      actions: {
+      motions: {
         default: {
           down: {
             areaList: [{ x: 0, y: 128, w: 32, h: 32 }],
