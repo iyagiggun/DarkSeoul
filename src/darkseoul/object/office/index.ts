@@ -1,14 +1,14 @@
-import IObject from 'iyagi/object';
-import ITile from 'iyagi/object/tile';
+import IObject from 'iyagi/object'
+import ITile from 'iyagi/object/tile'
 
-const SPRITE_URL = '/assets/object/office/sprite.png';
+const SPRITE_URL = '/assets/object/office/sprite.png'
 
 export function createOfficeTile (x: number, y: number) {
   const i = ITile.create({
     name: `office:tile:[${x},${y}]`,
-    sprite:{
+    sprite: {
       url: SPRITE_URL,
-      motions: {
+      actions: {
         default: {
           down: {
             areaList: [{ x: 0, y: 0, w: 32, h: 32 }]
@@ -16,9 +16,9 @@ export function createOfficeTile (x: number, y: number) {
         }
       }
     }
-  });
-  i.setPosition(x, y);
-  return i;
+  })
+  i.setPosition(x, y)
+  return i
 }
 
 export function createOfficeWallNW (x: number, y: number) {
@@ -27,7 +27,7 @@ export function createOfficeWallNW (x: number, y: number) {
       `office:wall:nw:[${x},${y}]`,
     sprite: {
       url: SPRITE_URL,
-      motions: {
+      actions: {
         default: {
           down: {
             areaList: [{ x: 0, y: 64, w: 32, h: 64 }],
@@ -36,9 +36,9 @@ export function createOfficeWallNW (x: number, y: number) {
         }
       }
     }
-  });
-  i.setPosition(x, y);
-  return i;
+  })
+  i.setPosition(x, y)
+  return i
 }
 
 export function createOfficeWallN (x: number, y: number) {
@@ -46,7 +46,7 @@ export function createOfficeWallN (x: number, y: number) {
     name: `office:wall:n:[${x},${y}]`,
     sprite: {
       url: SPRITE_URL,
-      motions: {
+      actions: {
         default: {
           down: {
             areaList: [{ x: 32, y: 64, w: 32, h: 64 }],
@@ -55,9 +55,9 @@ export function createOfficeWallN (x: number, y: number) {
         }
       }
     }
-  });
-  i.setPosition(x, y);
-  return i;
+  })
+  i.setPosition(x, y)
+  return i
 }
 
 export function createOfficeWallNE (x: number, y: number) {
@@ -65,7 +65,7 @@ export function createOfficeWallNE (x: number, y: number) {
     name: `office:wall:ne:[${x},${y}]`,
     sprite: {
       url: SPRITE_URL,
-      motions: {
+      actions: {
         default: {
           down: {
             areaList: [{ x: 64, y: 64, w: 32, h: 64 }],
@@ -74,17 +74,18 @@ export function createOfficeWallNE (x: number, y: number) {
         }
       }
     }
-  });
-  i.setPosition(x, y);
-  return i;
+  })
+  i.setPosition(x, y)
+  return i
 }
 
 export function createOfficeWallE (x: number, y: number) {
   const i = IObject.create({
     name: `office:wall:e:[${x},${y}]`,
     sprite:
-    {url: SPRITE_URL,
-      motions: {
+    {
+      url: SPRITE_URL,
+      actions: {
         default: {
           down: {
             areaList: [{ x: 64, y: 128, w: 32, h: 32 }],
@@ -93,9 +94,9 @@ export function createOfficeWallE (x: number, y: number) {
         }
       }
     }
-  });
-  i.setPosition(x + 21, y);
-  return i;
+  })
+  i.setPosition(x + 21, y)
+  return i
 }
 
 export function createOfficeWallSE (x: number, y: number) {
@@ -103,7 +104,7 @@ export function createOfficeWallSE (x: number, y: number) {
     name: `office:wall:se:[${x},${y}]`,
     sprite: {
       url: SPRITE_URL,
-      motions: {
+      actions: {
         default: {
           down: {
             areaList: [{ x: 64, y: 160, w: 32, h: 64 }],
@@ -112,9 +113,9 @@ export function createOfficeWallSE (x: number, y: number) {
         }
       }
     }
-  });
-  i.setPosition(x, y);
-  return i;
+  })
+  i.setPosition(x, y)
+  return i
 }
 
 export function createOfficeWallS (x: number, y: number) {
@@ -122,7 +123,7 @@ export function createOfficeWallS (x: number, y: number) {
     name: `office:wall:s:[${x},${y}]`,
     sprite: {
       url: SPRITE_URL,
-      motions: {
+      actions: {
         default: {
           down: {
             areaList: [{ x: 2, y: 160, w: 32, h: 64 }],
@@ -131,17 +132,18 @@ export function createOfficeWallS (x: number, y: number) {
         }
       }
     }
-  });
-  i.setPosition(x, y);
-  return i;
+  })
+  i.setPosition(x, y)
+  return i
 }
 
 export function createOfficeWallSW (x: number, y: number) {
   const i = IObject.create({
     name: `office:wall:sw:[${x},${y}]`,
     sprite:
-    {url: SPRITE_URL,
-      motions: {
+    {
+      url: SPRITE_URL,
+      actions: {
         default: {
           down: {
             areaList: [{ x: 0, y: 160, w: 32, h: 64 }],
@@ -150,17 +152,17 @@ export function createOfficeWallSW (x: number, y: number) {
         }
       }
     }
-  });
-  i.setPosition(x, y);
-  return i;
+  })
+  i.setPosition(x, y)
+  return i
 }
 
 export function createOfficeWallW (x: number, y: number) {
   const i = IObject.create({
     name: `office:wall:w:[${x},${y}]`,
-    sprite:{
+    sprite: {
       url: SPRITE_URL,
-      motions: {
+      actions: {
         default: {
           down: {
             areaList: [{ x: 0, y: 128, w: 32, h: 32 }],
@@ -169,7 +171,7 @@ export function createOfficeWallW (x: number, y: number) {
         }
       }
     }
-  });
-  i.setPosition(x, y);
-  return i;
+  })
+  i.setPosition(x, y)
+  return i
 }

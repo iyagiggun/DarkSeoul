@@ -12,7 +12,7 @@ const RyuDahee = Character.create({
   },
   sprite: {
     url: '/assets/object/main/RyuDahee/sprite.png',
-    motions: {
+    actions: {
       default: {
         up: {
           areaList: new Array(4)

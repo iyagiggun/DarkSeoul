@@ -1,13 +1,13 @@
-import IObject from 'iyagi/object';
+import IObject from 'iyagi/object'
 
-const WIDTH = 32;
-const HEIGHT = 44;
+const WIDTH = 32
+const HEIGHT = 44
 
 const SeoulFire = IObject.create({
   name: '서울의 불',
   sprite: {
     url: '/assets/object/main/SeoulFire/sprite.png',
-    motions: {
+    actions: {
       default: {
         down: {
           areaList: new Array(4)
@@ -30,6 +30,6 @@ const SeoulFire = IObject.create({
       }
     }
   }
-});
+})
 
-export default SeoulFire;
+export default SeoulFire

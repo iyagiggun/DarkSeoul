@@ -1,15 +1,15 @@
-import IObject from 'iyagi/object';
+import IObject from 'iyagi/object'
 
-type Direction = 'up' | 'down' | 'left' | 'right';
+type Direction = 'up' | 'down' | 'left' | 'right'
 
-const SPRITE_URL = '/assets/object/office/sprite.png';
+const SPRITE_URL = '/assets/object/office/sprite.png'
 
 export function createOfficeShortDesk (x: number, y: number, dir: Direction) {
   const i = IObject.create({
     name: `office:shortdesk:${x},${y}:${dir}`,
-    sprite:{
+    sprite: {
       url: SPRITE_URL,
-      motions: {
+      actions: {
         default: {
           down: {
             areaList: [{ x: 0, y: 224, w: 50, h: 40 }]
@@ -20,18 +20,18 @@ export function createOfficeShortDesk (x: number, y: number, dir: Direction) {
         }
       }
     }
-  });
-  i.setDirection(dir);
-  i.setPosition(x, y);
-  return i;
+  })
+  i.setDirection(dir)
+  i.setPosition(x, y)
+  return i
 }
 
 export function createOfficeChair (x: number, y: number, dir: Direction) {
   const i = IObject.create({
     name: `office:chair:${x},${y}:${dir}`,
-    sprite:{
+    sprite: {
       url: SPRITE_URL,
-      motions: {
+      actions: {
         default: {
           up: {
             areaList: [{ x: 32, y: 270, w: 16, h: 32 }],
@@ -52,19 +52,19 @@ export function createOfficeChair (x: number, y: number, dir: Direction) {
         }
       }
     }
-  });
-  i.setDirection(dir);
-  i.setPosition(x, y);
+  })
+  i.setDirection(dir)
+  i.setPosition(x, y)
 
-  return i;
+  return i
 }
 
 export function createOfficeArmChair (x: number, y: number, dir: Direction = 'down') {
   const i = IObject.create({
     name: `office:arm-chair:${x},${y}:${dir}`,
-    sprite:{
+    sprite: {
       url: SPRITE_URL,
-      motions: {
+      actions: {
         default: {
           up: {
             areaList: [{ x: 0, y: 302, w: 32, h: 28 }],
@@ -81,20 +81,20 @@ export function createOfficeArmChair (x: number, y: number, dir: Direction = 'do
         }
       }
     }
-  });
+  })
 
-  i.setDirection(dir);
-  i.setPosition(x, y);
+  i.setDirection(dir)
+  i.setPosition(x, y)
 
-  return i;
+  return i
 }
 
 export function createFireExtinguisher (x: number, y: number) {
   const i = IObject.create({
     name: `office:fire-extinguisher:${x},${y}`,
-    sprite:{
+    sprite: {
       url: SPRITE_URL,
-      motions: {
+      actions: {
         default: {
           down: {
             areaList: [{ x: 0, y: 338, w: 10, h: 18 }]
@@ -102,15 +102,15 @@ export function createFireExtinguisher (x: number, y: number) {
         }
       }
     }
-  });
-  i.setPosition(x, y);
-  return i;
+  })
+  i.setPosition(x, y)
+  return i
 }
 
 export function getAPartition (x: number, y: number) {
   const deskList = new Array(3).fill(null)
     .map((_, rowIdx) => new Array(2).fill(null)
-      .map((__, colIdx) => createOfficeShortDesk(x + (colIdx * 29), y + (rowIdx * 32), 'left')));
+      .map((__, colIdx) => createOfficeShortDesk(x + (colIdx * 29), y + (rowIdx * 32), 'left')))
 
   const chairList = new Array(3).fill(null)
     .map((_, rowIdx) => new Array(2).fill(null)
@@ -118,7 +118,7 @@ export function getAPartition (x: number, y: number) {
         x + (colIdx * 83) - 20,
         y + rowIdx * 32 + 18,
         colIdx === 0 ? 'right' : 'left'
-      )));
+      )))
 
-  return [...deskList.flatMap((item) => item), ...chairList.flatMap((item) => item)];
+  return [...deskList.flatMap((item) => item), ...chairList.flatMap((item) => item)]
 }
