@@ -1,3 +1,4 @@
+import type IObject from 'iyagi/object'
 import ICharacter from 'iyagi/object/character'
 
 type Effect = 'POISON'
@@ -8,6 +9,7 @@ interface Status {
   affected: Effect[]
 }
 
+type IObjectCreated = ReturnType<typeof IObject.create>
 type ICharacterParameter = Parameters<typeof ICharacter.create>[0]
 
 interface CharacterParameter extends ICharacterParameter {
@@ -33,9 +35,16 @@ const Character = {
       ...status
     })
 
+    const setStatus = (s: Status) => {
+      status.hp = s.hp
+      status.mp = s.mp
+      console.debug(ic.name, status)
+    }
+
     return {
       ...ic,
-      getStatus
+      getStatus,
+      setStatus
     }
   }
 }
@@ -58,6 +67,25 @@ class CharacterClass {
   getStatus () {
     return { ...this.status }
   }
+
+  setStatus (s: Status) {
+    this.status.hp = s.hp
+    this.status.mp = s.mp
+  }
 }
 
-export { Character, CharacterClass }
+type CharacterType = ReturnType<typeof Character.create> | CharacterClass
+
+interface Damage {
+  physical: number
+}
+
+const DamageCalculator = {
+  hit: (damage: Damage, hit: CharacterType) => {
+    const status = hit.getStatus()
+    status.hp -= damage.physical
+    hit.setStatus(status)
+  }
+}
+
+export { Character, CharacterClass, type IObjectCreated, type CharacterType, DamageCalculator }
