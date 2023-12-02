@@ -108,7 +108,7 @@ export const ceoBite = (scene: ReturnType<typeof IScene.create>) => {
 
       scene.getOverlappingObjectList(hitBox)
         .forEach((object: IObjectCreated | CharacterType) => {
-          if (!('getStatus' in object) || object.getPosition().z !== CEO.getPosition().z) {
+          if (!('status' in object) || object.getPosition().z !== CEO.getPosition().z) {
             return
           }
           DamageCalculator.hit(BiteDamage, object)
