@@ -26,8 +26,13 @@ const Character = {
     const is = IStatus.create(DEFAULT_STATUS)
 
     is.on('change', ({ before, after }) => {
-      console.error(after)
-      IStatusBarBasic.show(ic.container, { key: 'hp', before: before.hp, after: after.hp, max: before.hpMax })
+      IStatusBarBasic.show(ic.container, {
+        key: 'hp',
+        before: before.hp,
+        after: after.hp,
+        max: before.hpMax,
+        color: '#a81b2e'
+      })
     })
 
     return {
