@@ -64,7 +64,7 @@ interface Damage {
 const DamageCalculator = {
   hit: (damage: Damage, hit: CharacterType) => {
     const status = hit.status
-    const hp = status.get().hp - damage.physical
+    const hp = Math.max(status.get().hp - damage.physical, 0)
     status.set({ hp })
   }
 }
