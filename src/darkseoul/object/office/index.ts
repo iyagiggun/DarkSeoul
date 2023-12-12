@@ -21,6 +21,24 @@ export function createOfficeTile (x: number, y: number) {
   return i
 }
 
+export function createExitTile (x: number, y: number) {
+  const i = ITile.create({
+    name: `office:tile:[${x},${y}]`,
+    sprite: {
+      url: SPRITE_URL,
+      motions: {
+        default: {
+          down: {
+            areaList: [{ x: 0, y: 0, w: 32, h: 32 }]
+          }
+        }
+      }
+    }
+  })
+  i.setPosition(x, y)
+  return i
+}
+
 export function createOfficeWallNW (x: number, y: number) {
   const i = IObject.create({
     name:

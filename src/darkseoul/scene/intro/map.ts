@@ -1,4 +1,5 @@
 import {
+  createExitTile,
   createOfficeTile,
   createOfficeWallE,
   createOfficeWallN,
@@ -9,11 +10,15 @@ import {
   createOfficeWallSW,
   createOfficeWallW
 } from '../../object/office'
-import { getAPartition } from '../../object/office/object'
+import { createFireExtinguisher, getAPartition } from '../../object/office/object'
 
 const MAP_WIDTH = 14
 const MAP_HEIGHT = 18
 const TILE_SIZE = 32
+
+export function createEscapeTiles () {
+  return new Array(2).fill(null).map((_, rowIdx) => createExitTile(-1 * TILE_SIZE, (rowIdx + 6) * TILE_SIZE))
+}
 
 export function createTiles () {
   return new Array(MAP_HEIGHT).fill(null)
@@ -51,6 +56,8 @@ export function createWalls () {
     ...leftWalls
   ]
 }
+
+export const feInOffice = createFireExtinguisher(16, 54)
 
 export function getPartitions () {
   return [
