@@ -19,7 +19,7 @@ class Character extends ICharacter {
   constructor (p: Parameter) {
     super(p)
 
-    this.status = IStatus.create(DEFAULT_STATUS)
+    this.status = new IStatus(DEFAULT_STATUS)
     this.status.on('change', ({ before, after }) => {
       IStatusBarBasic.show(this.container, {
         key: 'hp',

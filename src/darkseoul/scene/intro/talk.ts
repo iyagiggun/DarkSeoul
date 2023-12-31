@@ -4,6 +4,7 @@ import SeoulFire from '../../object/main/SeoulFire'
 import RyuDahee from '../../object/main/RyuDahee'
 import Ash from '../../object/main/Ash'
 import { feInOffice } from './map'
+import { wait } from 'iyagi/utils'
 
 export default async (intro: ISceneCreated) => {
   intro.removeObject(CEO)
@@ -13,25 +14,25 @@ export default async (intro: ISceneCreated) => {
   await intro.focus(RyuDahee)
   // 두리번
   RyuDahee.setDirection('up')
-  await intro.wait(0.5)
+  await wait(0.5)
   RyuDahee.setDirection('left')
-  await intro.wait(0.5)
+  await wait(0.5)
   RyuDahee.setDirection('down')
-  await intro.wait(0.5)
+  await wait(0.5)
   RyuDahee.setDirection('right')
-  await intro.wait(0.5)
+  await wait(0.5)
 
   await intro.showMessage(RyuDahee, '사장..님....? ... 안계시나..요?')
   await intro.showMessage(RyuDahee, '아우!! 뭐야 먼저 퇴근한거야? 나 혼자 야근하라고..?? 야근비라도 주고 시키던가.. 고용노동부는 뭐하는거야? 포괄임금제 하는 회사 사장들 다 잡아서 빨리 감방에 넣어야 하는거 아냐??')
 
-  await intro.wait(0.5)
+  await wait(0.5)
   RyuDahee.setDirection('right')
-  await intro.wait(0.5)
+  await wait(0.5)
   await intro.showMessage(RyuDahee, '어..? 근데 저건.. 뭐지..?')
 
   // 불 보기
   await intro.focus(SeoulFire, 2)
-  await intro.wait(2)
+  await wait(2)
   await intro.focus(RyuDahee, 2)
 
   // 불쪽으로 이동
@@ -42,22 +43,22 @@ export default async (intro: ISceneCreated) => {
 
   // 허둥지둥
   await intro.moveObject(RyuDahee, { x: 270, y: 82 }, { speed: 3, focusing: true })
-  await intro.wait(0.1)
+  await wait(0.1)
   await intro.moveObject(RyuDahee, { x: 250, y: 82 }, { speed: 3, focusing: true })
-  await intro.wait(0.1)
+  await wait(0.1)
   await intro.moveObject(RyuDahee, { x: 270, y: 82 }, { speed: 3, focusing: true })
-  await intro.wait(0.1)
+  await wait(0.1)
   await intro.moveObject(RyuDahee, { x: 250, y: 82 }, { speed: 3, focusing: true })
-  await intro.wait(0.1)
+  await wait(0.1)
   await intro.moveObject(RyuDahee, { x: 270, y: 82 }, { speed: 3, focusing: true })
-  await intro.wait(0.1)
+  await wait(0.1)
   await intro.moveObject(RyuDahee, { x: 250, y: 82 }, { speed: 3, focusing: true })
-  await intro.wait(0.1)
+  await wait(0.1)
 
   // 커피 쏟기
   await intro.moveObject(RyuDahee, { x: 326, y: 82 }, { speed: 3, focusing: true })
   await intro.showMessage(RyuDahee, '[손에 들고 있는 커피를 쏟았다]')
-  await intro.wait(1)
+  await wait(1)
   await intro.showMessage(Ash, '이 불은 Seoul 의 불..')
   await intro.showMessage(Ash, '오직 계승자의 의지만이 불을 끌 수 있을 뿐.. 그런 것으로는 끌 수 없습니다.')
   await intro.showMessage(RyuDahee, '(으아아!! 뭐라는거야? 당황하면 안돼! 그래! 소화기! 소화기를 찾아야해!)')
@@ -66,15 +67,15 @@ export default async (intro: ISceneCreated) => {
   await intro.moveObject(RyuDahee, { x: 270, y: 82 }, { speed: 3, focusing: true })
   await intro.showMessage(RyuDahee, '소화기!')
   await intro.moveObject(RyuDahee, { x: 32, y: 82 }, { speed: 3, focusing: true })
-  await intro.wait(0.2)
+  await wait(0.2)
   intro.removeObject(feInOffice)
-  await intro.wait(0.2)
+  await wait(0.2)
   await intro.moveObject(RyuDahee, { x: 326, y: 82 }, { speed: 3, focusing: true })
   await intro.showMessage(RyuDahee, '[소화기를 사용하였다]')
   await intro.showMessage(RyuDahee, '제일인산암모늄을 끼얹어 주마!!')
-  await intro.wait(1)
+  await wait(1)
   SeoulFire.changeMotion('unlit')
-  await intro.wait(0.5)
+  await wait(0.5)
 
   // 일 시키기 시작
   await intro.showMessage(Ash, '...')
@@ -97,9 +98,9 @@ export default async (intro: ISceneCreated) => {
   intro.addObject(CEO)
 
   RyuDahee.setDirection('left')
-  await intro.wait(0.5)
+  await wait(0.5)
   await intro.focus(CEO, 2)
-  await intro.wait(0.5)
+  await wait(0.5)
   await intro.focus(RyuDahee, 2)
   await intro.showMessage(RyuDahee, '어..? 으아아악! 뭐.. 뭐야!!')
   await intro.showMessage(Ash, '그는 거대한 Seoul 을 보유하고 있던 자..')

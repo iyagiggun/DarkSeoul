@@ -29,7 +29,7 @@ const objectList = [
   feInOffice
 ]
 
-const intro = IScene.create({
+const intro = new IScene({
   name: 'intro',
   objectList,
   tileList: [...tiles1D, ...exitTiles],

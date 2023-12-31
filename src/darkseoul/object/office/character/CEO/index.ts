@@ -73,7 +73,7 @@ const BiteDamage = {
   physical: 30
 }
 
-export const ceoBite = (scene: ReturnType<typeof IScene.create>) => {
+export const ceoBite = (scene: IScene) => {
   CEO.changeMotion('bite')
   CEO.play({
     onFrameChange: (frameIdx) => {

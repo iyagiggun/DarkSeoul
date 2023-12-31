@@ -10,16 +10,18 @@ const bg = new ITile({
 
 // bg.container.height = 100
 
-const title = IScene.create({
+const title = new IScene({
   name: '타이틀 화면',
-  tileList: [bg, SeoulFire],
+  tileList: [bg],
+  objectList: [SeoulFire],
   take: async () => {
+    SeoulFire.play()
     console.error('title')
 
     await new Promise<void>((resolve) => {
       window.setTimeout(() => {
         resolve()
-      }, 2000)
+      }, 1000)
     })
     return intro
   }
