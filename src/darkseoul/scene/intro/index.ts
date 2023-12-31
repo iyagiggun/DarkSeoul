@@ -15,7 +15,7 @@ const walls = createWalls()
 const partitions = getPartitions()
 
 Ash.setPosition(396, 82)
-Ash.setDirection('left')
+Ash.changeDirection('left')
 SeoulFire.setPosition(360, 64)
 RyuDahee.setPosition(32, 200)
 

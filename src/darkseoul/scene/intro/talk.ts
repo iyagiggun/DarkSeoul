@@ -1,10 +1,10 @@
-import CEO from '../../object/office/character/CEO'
-import SeoulFire from '../../object/main/SeoulFire'
-import RyuDahee from '../../object/main/RyuDahee'
-import Ash from '../../object/main/Ash'
-import { feInOffice } from './map'
-import { wait } from 'iyagi/utils'
 import type IScene from 'iyagi/scene'
+import { wait } from 'iyagi/utils'
+import Ash from '../../object/main/Ash'
+import RyuDahee from '../../object/main/RyuDahee'
+import SeoulFire from '../../object/main/SeoulFire'
+import CEO from '../../object/office/character/CEO'
+import { feInOffice } from './map'
 
 export default async (intro: IScene) => {
   intro.removeObject(CEO)
@@ -13,20 +13,20 @@ export default async (intro: IScene) => {
 
   await intro.focus(RyuDahee)
   // 두리번
-  RyuDahee.setDirection('up')
+  RyuDahee.changeDirection('up')
   await wait(0.5)
-  RyuDahee.setDirection('left')
+  RyuDahee.changeDirection('left')
   await wait(0.5)
-  RyuDahee.setDirection('down')
+  RyuDahee.changeDirection('down')
   await wait(0.5)
-  RyuDahee.setDirection('right')
+  RyuDahee.changeDirection('right')
   await wait(0.5)
 
   await intro.showMessage(RyuDahee, '사장..님....? ... 안계시나..요?')
   await intro.showMessage(RyuDahee, '아우!! 뭐야 먼저 퇴근한거야? 나 혼자 야근하라고..?? 야근비라도 주고 시키던가.. 고용노동부는 뭐하는거야? 포괄임금제 하는 회사 사장들 다 잡아서 빨리 감방에 넣어야 하는거 아냐??')
 
   await wait(0.5)
-  RyuDahee.setDirection('right')
+  RyuDahee.changeDirection('right')
   await wait(0.5)
   await intro.showMessage(RyuDahee, '어..? 근데 저건.. 뭐지..?')
 
@@ -93,11 +93,11 @@ export default async (intro: IScene) => {
   await intro.showMessage(RyuDahee, '아니 이보세요, 이 쓰레기를 왜 나한테 주는거에요?')
 
   // CEO 등장
-  CEO.setDirection('right')
+  CEO.changeDirection('right')
   CEO.setPosition(32, 128)
   intro.addObject(CEO)
 
-  RyuDahee.setDirection('left')
+  RyuDahee.changeDirection('left')
   await wait(0.5)
   await intro.focus(CEO, 2)
   await wait(0.5)
