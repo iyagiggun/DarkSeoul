@@ -1,12 +1,12 @@
-import { type ISceneCreated } from 'iyagi/scene'
 import CEO from '../../object/office/character/CEO'
 import SeoulFire from '../../object/main/SeoulFire'
 import RyuDahee from '../../object/main/RyuDahee'
 import Ash from '../../object/main/Ash'
 import { feInOffice } from './map'
 import { wait } from 'iyagi/utils'
+import type IScene from 'iyagi/scene'
 
-export default async (intro: ISceneCreated) => {
+export default async (intro: IScene) => {
   intro.removeObject(CEO)
 
   SeoulFire.play()
