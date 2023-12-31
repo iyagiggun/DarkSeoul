@@ -1,12 +1,5 @@
-import type IObject from 'iyagi/object'
-import ICharacter from 'iyagi/object/character'
+import { ICharacter } from 'iyagi/object'
 import IStatus, { IStatusBarBasic } from 'iyagi/object/character/status'
-
-type IObjectCreated = ReturnType<typeof IObject.create>
-type ICharacterParameter = Parameters<typeof ICharacter.create>[0]
-
-interface CharacterParameter extends ICharacterParameter {
-}
 
 const DEFAULT_STATUS = {
   hp: 100,
@@ -15,18 +8,20 @@ const DEFAULT_STATUS = {
   mpMax: 100
 }
 
-type StatusType = typeof DEFAULT_STATUS
+type ICharacterConstructorParameters = ConstructorParameters<typeof ICharacter>[0]
 
-const Character = {
-  create: (p: CharacterParameter) => {
-    const ic = ICharacter.create({
-      ...p
-    })
+interface Parameter extends ICharacterConstructorParameters {
+}
 
-    const is = IStatus.create(DEFAULT_STATUS)
+class Character extends ICharacter {
+  status
 
-    is.on('change', ({ before, after }) => {
-      IStatusBarBasic.show(ic.container, {
+  constructor (p: Parameter) {
+    super(p)
+
+    this.status = IStatus.create(DEFAULT_STATUS)
+    this.status.on('change', ({ before, after }) => {
+      IStatusBarBasic.show(this.container, {
         key: 'hp',
         before: before.hp,
         after: after.hp,
@@ -34,39 +29,19 @@ const Character = {
         color: '#a81b2e'
       })
     })
-
-    return {
-      ...ic,
-      status: is
-    }
   }
 }
-
-interface CharacterClass extends ReturnType<typeof ICharacter.create> {}
-
-class CharacterClass {
-  public status: ReturnType<typeof IStatus.create<StatusType>>
-
-  constructor (p: CharacterParameter) {
-    const ic = ICharacter.create(p)
-    this.status = IStatus.create(DEFAULT_STATUS)
-
-    Object.assign(this, ic)
-  }
-}
-
-type CharacterType = ReturnType<typeof Character.create> | CharacterClass
 
 interface Damage {
   physical: number
 }
 
 const DamageCalculator = {
-  hit: (damage: Damage, hit: CharacterType) => {
+  hit: (damage: Damage, hit: Character) => {
     const status = hit.status
     const hp = Math.max(status.get().hp - damage.physical, 0)
     status.set({ hp })
   }
 }
 
-export { Character, CharacterClass, DamageCalculator, type CharacterType, type IObjectCreated }
+export { Character, DamageCalculator }

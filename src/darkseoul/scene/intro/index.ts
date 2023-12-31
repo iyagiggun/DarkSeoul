@@ -34,6 +34,7 @@ const intro = IScene.create({
   objectList,
   tileList: [...tiles1D, ...exitTiles],
   take: async () => {
+    console.error('intro')
     await talk(intro)
 
     IBasicTracker.control({
@@ -59,6 +60,8 @@ const intro = IScene.create({
         })
       })
     })
+
+    return null
   }
 })
 

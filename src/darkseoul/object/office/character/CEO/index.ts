@@ -2,77 +2,69 @@
 
 import Debugger from 'iyagi/debugger'
 import type IScene from 'iyagi/scene'
-import { Character, DamageCalculator, type CharacterType, type IObjectCreated } from '../../../character'
+import { Character, DamageCalculator } from '../../../character'
 
 const UNIT = 64
-const collision = { x: 16, y: 50, w: 32, h: 14 }
+const hitbox = { x: 16, y: 50, w: 32, h: 14 }
 
-const CEO = Character.create({
+const CEO = new Character({
   name: 'CEO',
-  sprite: {
-    url: '/assets/object/office/character/CEO/sprite.png',
-    motions: {
-      default: {
-        up: {
-          areaList: new Array(9)
-            .fill(null)
-            .map((_, idx) => ({ x: UNIT * idx, y: UNIT * 8, w: UNIT, h: UNIT })),
-          collision
-        },
-        down: {
-          areaList: new Array(9)
-            .fill(null)
-            .map((_, idx) => ({ x: UNIT * idx, y: UNIT * 10, w: UNIT, h: UNIT })),
-          collision
-        },
-        left: {
-          areaList: new Array(9)
-            .fill(null)
-            .map((_, idx) => ({ x: UNIT * idx, y: UNIT * 9, w: UNIT, h: UNIT })),
-          collision
-        },
-        right: {
-          areaList: new Array(9)
-            .fill(null)
-            .map((_, idx) => ({ x: UNIT * idx, y: UNIT * 11, w: UNIT, h: UNIT })),
-          collision
-        }
+  image: '/assets/object/office/character/CEO/sprite.png',
+  motions: {
+    default: {
+      hitbox,
+      up: {
+        frames: new Array(9)
+          .fill(null)
+          .map((_, idx) => ({ x: UNIT * idx, y: UNIT * 8, w: UNIT, h: UNIT }))
       },
-      bite: {
-        up: {
-          areaList: [
-            { x: UNIT * 1, y: UNIT * 0, w: UNIT, h: UNIT },
-            { x: UNIT * 5, y: UNIT * 0, w: UNIT, h: UNIT },
-            { x: UNIT * 1, y: UNIT * 0, w: UNIT, h: UNIT }
-          ],
-          collision
-        },
-        down: {
-          areaList: [
-            { x: UNIT * 1, y: UNIT * 2, w: UNIT, h: UNIT },
-            { x: UNIT * 5, y: UNIT * 2, w: UNIT, h: UNIT },
-            { x: UNIT * 1, y: UNIT * 2, w: UNIT, h: UNIT }
-          ],
-          collision
-        },
-        left: {
-          areaList: [
-            { x: UNIT * 1, y: UNIT * 1, w: UNIT, h: UNIT },
-            { x: UNIT * 5, y: UNIT * 1, w: UNIT, h: UNIT },
-            { x: UNIT * 1, y: UNIT * 1, w: UNIT, h: UNIT }
-          ],
-          collision
-        },
-        right: {
-          areaList: [
-            { x: UNIT * 1, y: UNIT * 3, w: UNIT, h: UNIT },
-            { x: UNIT * 5, y: UNIT * 3, w: UNIT, h: UNIT },
-            { x: UNIT * 1, y: UNIT * 3, w: UNIT, h: UNIT }
-          ],
-          collision
-        },
-        loop: false
+      down: {
+        frames: new Array(9)
+          .fill(null)
+          .map((_, idx) => ({ x: UNIT * idx, y: UNIT * 10, w: UNIT, h: UNIT }))
+      },
+      left: {
+        frames: new Array(9)
+          .fill(null)
+          .map((_, idx) => ({ x: UNIT * idx, y: UNIT * 9, w: UNIT, h: UNIT }))
+      },
+      right: {
+        frames: new Array(9)
+          .fill(null)
+          .map((_, idx) => ({ x: UNIT * idx, y: UNIT * 11, w: UNIT, h: UNIT }))
       }
+    },
+    bite: {
+      hitbox,
+      up: {
+        frames: [
+          { x: UNIT * 1, y: UNIT * 0, w: UNIT, h: UNIT },
+          { x: UNIT * 5, y: UNIT * 0, w: UNIT, h: UNIT },
+          { x: UNIT * 1, y: UNIT * 0, w: UNIT, h: UNIT }
+        ]
+      },
+      down: {
+        frames: [
+          { x: UNIT * 1, y: UNIT * 2, w: UNIT, h: UNIT },
+          { x: UNIT * 5, y: UNIT * 2, w: UNIT, h: UNIT },
+          { x: UNIT * 1, y: UNIT * 2, w: UNIT, h: UNIT }
+        ]
+      },
+      left: {
+        frames: [
+          { x: UNIT * 1, y: UNIT * 1, w: UNIT, h: UNIT },
+          { x: UNIT * 5, y: UNIT * 1, w: UNIT, h: UNIT },
+          { x: UNIT * 1, y: UNIT * 1, w: UNIT, h: UNIT }
+        ]
+      },
+      right: {
+        frames: [
+          { x: UNIT * 1, y: UNIT * 3, w: UNIT, h: UNIT },
+          { x: UNIT * 5, y: UNIT * 3, w: UNIT, h: UNIT },
+          { x: UNIT * 1, y: UNIT * 3, w: UNIT, h: UNIT }
+        ]
+      },
+      loop: false
     }
   }
 })
@@ -107,7 +99,7 @@ export const ceoBite = (scene: ReturnType<typeof IScene.create>) => {
       })()
 
       scene.getOverlappingObjectList(hitBox)
-        .forEach((object: IObjectCreated | CharacterType) => {
+        .forEach((object: any) => {
           if (!('status' in object) || object.getPosition().z !== CEO.getPosition().z) {
             return
           }
