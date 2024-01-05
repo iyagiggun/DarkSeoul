@@ -19,10 +19,11 @@ const title = new IScene({
     console.error('title')
 
     await new Promise<void>((resolve) => {
-      window.setTimeout(() => {
+      SeoulFire.events.onTap = () => {
         resolve()
-      }, 1000)
+      }
     })
+
     return intro
   }
 })

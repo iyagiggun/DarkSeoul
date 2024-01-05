@@ -20,7 +20,7 @@ class Character extends ICharacter {
     super(p)
 
     this.status = new IStatus(DEFAULT_STATUS)
-    this.status.on('change', ({ before, after }) => {
+    this.status.events.onChange = ({ before, after }) => {
       IStatusBarBasic.show(this.container, {
         key: 'hp',
         before: before.hp,
@@ -28,7 +28,7 @@ class Character extends ICharacter {
         max: before.hpMax,
         color: '#a81b2e'
       })
-    })
+    }
   }
 }
 

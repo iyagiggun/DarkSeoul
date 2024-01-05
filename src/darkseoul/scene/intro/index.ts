@@ -55,9 +55,10 @@ const intro = new IScene({
 
       exitTiles.forEach((tile) => {
         Debuger.colorize(tile, { key: onExitTileIn })
-        tile.on('in', () => {
+        tile.events.onObjectIn = ({ target }) => {
+          console.error(target)
           onExitTileIn()
-        })
+        }
       })
     })
 
