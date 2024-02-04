@@ -1,13 +1,15 @@
-import { IMonoObject, IObject } from 'iyagi/object'
+import { IObject } from 'iyagi/object'
 
 type Direction = 'up' | 'down' | 'left' | 'right'
 
-const SPRITE_URL = '/assets/object/office/sprite.png'
+const IMAGE = {
+  url: '/assets/object/office/sprite.png'
+}
 
 export function createOfficeShortDesk (x: number, y: number, dir: Direction) {
-  const i = new IObject({
+  const o = new IObject({
     name: `office:shortdesk:${x},${y}:${dir}`,
-    image: SPRITE_URL,
+    image: IMAGE,
     motions: {
       default: {
         down: {
@@ -19,15 +21,15 @@ export function createOfficeShortDesk (x: number, y: number, dir: Direction) {
       }
     }
   })
-  i.changeDirection(dir)
-  i.setPosition(x, y)
-  return i
+  o.directTo(dir)
+  o.positionAt({ x, y })
+  return o
 }
 
 export function createOfficeChair (x: number, y: number, dir: Direction) {
-  const i = new IObject({
+  const o = new IObject({
     name: `office:chair:${x},${y}:${dir}`,
-    image: SPRITE_URL,
+    image: IMAGE,
     motions: {
       default: {
         up: {
@@ -49,16 +51,16 @@ export function createOfficeChair (x: number, y: number, dir: Direction) {
       }
     }
   })
-  i.changeDirection(dir)
-  i.setPosition(x, y)
+  o.directTo(dir)
+  o.positionAt({ x, y })
 
-  return i
+  return o
 }
 
 export function createOfficeArmChair (x: number, y: number, dir: Direction = 'down') {
-  const i = new IObject({
+  const o = new IObject({
     name: `office:arm-chair:${x},${y}:${dir}`,
-    image: SPRITE_URL,
+    image: IMAGE,
     motions: {
       default: {
         up: {
@@ -76,19 +78,19 @@ export function createOfficeArmChair (x: number, y: number, dir: Direction = 'do
       }
     }
   })
-  i.changeDirection(dir)
-  i.setPosition(x, y)
-  return i
+  o.directTo(dir)
+  o.positionAt({ x, y })
+  return o
 }
 
 export function createFireExtinguisher (x: number, y: number) {
-  const i = new IMonoObject({
+  const o = IObject.createMono({
     name: `office:fire-extinguisher:${x},${y}`,
-    image: SPRITE_URL,
+    image: IMAGE,
     frames: [{ x: 0, y: 338, w: 10, h: 18 }]
   })
-  i.setPosition(x, y)
-  return i
+  o.positionAt({ x, y })
+  return o
 }
 
 export function getAPartition (x: number, y: number) {

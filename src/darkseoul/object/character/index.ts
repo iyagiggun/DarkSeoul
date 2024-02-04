@@ -1,5 +1,5 @@
-import { ICharacter } from 'iyagi/object'
-import IStatus, { IStatusBarBasic } from 'iyagi/object/character/status'
+import { ICharacter, type CharacterParameter } from 'iyagi/character'
+import { BasicStatusBar, status } from 'iyagi/status'
 
 const DEFAULT_STATUS = {
   hp: 100,
@@ -8,27 +8,22 @@ const DEFAULT_STATUS = {
   mpMax: 100
 }
 
-type ICharacterConstructorParameters = ConstructorParameters<typeof ICharacter>[0]
-
-interface Parameter extends ICharacterConstructorParameters {
-}
-
 class Character extends ICharacter {
   status
 
-  constructor (p: Parameter) {
+  constructor (p: CharacterParameter) {
     super(p)
 
-    this.status = new IStatus(DEFAULT_STATUS)
-    this.status.events.onChange = ({ before, after }) => {
-      IStatusBarBasic.show(this.container, {
+    this.status = status.create(DEFAULT_STATUS)
+    this.status.event.change.bind(({ before, after }) => {
+      BasicStatusBar.show(this, {
         key: 'hp',
         before: before.hp,
         after: after.hp,
         max: before.hpMax,
         color: '#a81b2e'
       })
-    }
+    })
   }
 }
 

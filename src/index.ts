@@ -1,14 +1,10 @@
-import Iyagi from 'iyagi'
+import { Iyagi } from 'iyagi'
 import title from './darkseoul/scene/title'
 
-function init () {
-  const canvas = document.querySelector<HTMLCanvasElement>('#display')
-  if (canvas == null) {
-    throw new Error('Fail to init. no the canvas.')
-  }
-
-  Iyagi.set(canvas, title, { debug: true })
-  Iyagi.play()
+const init = async () => {
+  const canvas = document.querySelector<HTMLCanvasElement>('#display') as HTMLCanvasElement
+  const darkseoul = new Iyagi(canvas, { mode: 'development' })
+  darkseoul.play(title)
 }
 
 init()

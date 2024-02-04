@@ -1,7 +1,6 @@
 // import { createCharacter } from 'iyagi/dist/object/character';
 
-import Debugger from 'iyagi/debugger'
-import type IScene from 'iyagi/scene'
+import { type IScene } from 'iyagi/scene'
 import { Character, DamageCalculator } from '../../../character'
 
 const UNIT = 64
@@ -9,7 +8,9 @@ const hitbox = { x: 16, y: 50, w: 32, h: 14 }
 
 const CEO = new Character({
   name: 'CEO',
-  image: '/assets/object/office/character/CEO/sprite.png',
+  image: {
+    url: '/assets/object/office/character/CEO/sprite.png'
+  },
   motions: {
     default: {
       hitbox,
@@ -74,16 +75,16 @@ const BiteDamage = {
 }
 
 export const ceoBite = (scene: IScene) => {
-  CEO.changeMotion('bite')
+  CEO.change('bite')
   CEO.play({
     onFrameChange: (frameIdx) => {
       if (frameIdx !== 2) {
         return
       }
-      const { x: cX, y: cY } = CEO.getCenterPosition()
-      const { x, y, w, h } = CEO.getArea()
+      const { x: cX, y: cY } = CEO.position()
+      const { x, y, w, h } = CEO.area()
 
-      const dir = CEO.getDirection()
+      const dir = CEO.direction()
 
       const hitBox = (() => {
         switch (dir) {
@@ -98,16 +99,13 @@ export const ceoBite = (scene: IScene) => {
         }
       })()
 
-      scene.getOverlappingObjectList(hitBox)
-        .forEach((object: any) => {
-          if (!('status' in object) || object.getPosition().z !== CEO.getPosition().z) {
+      scene.objects.overlapped(hitBox)
+        .forEach((object: any) => { // TODO:: any
+          if (!('status' in object) || object.position().z !== CEO.position().z) {
             return
           }
           DamageCalculator.hit(BiteDamage, object)
         })
-
-      Debugger.showArea(scene, hitBox)
-      Debugger.showArea(scene, CEO.getArea(), { color: '#0000ff' })
     }
   })
 }

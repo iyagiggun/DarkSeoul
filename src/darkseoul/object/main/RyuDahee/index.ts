@@ -10,7 +10,9 @@ const RyuDahee = new Character({
   photoMap: {
     default: '/assets/object/main/RyuDahee/photo.png'
   },
-  image: '/assets/object/main/RyuDahee/sprite.png',
+  image: {
+    url: '/assets/object/main/RyuDahee/sprite.png'
+  },
   motions: {
     default: {
       hitbox: { x: 0, y: 40, w: 32, h: 16 },

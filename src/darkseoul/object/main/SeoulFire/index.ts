@@ -5,7 +5,9 @@ const HEIGHT = 44
 
 const SeoulFire = new IObject({
   name: '서울의 불',
-  image: '/assets/object/main/SeoulFire/sprite.png',
+  image: {
+    url: '/assets/object/main/SeoulFire/sprite.png'
+  },
   motions: {
     default: {
       down: {
