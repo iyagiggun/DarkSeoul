@@ -4,16 +4,14 @@ import RyuDahee from '../../object/main/RyuDahee'
 import SeoulFire from '../../object/main/SeoulFire'
 import CEO from '../../object/office/character/CEO'
 import { feInOffice } from './map'
-import { camera, type IScene } from 'iyagi/scene'
+import { type IScene } from 'iyagi/scene'
 
 export default async (intro: IScene) => {
   intro.objects.delete(CEO)
 
-  console.error(SeoulFire.scene)
-
   SeoulFire.play()
 
-  await camera.focus(RyuDahee)
+  intro.camera.pointTo(RyuDahee)
   // 두리번
   RyuDahee.directTo('up')
   await wait(0.5)
@@ -32,33 +30,35 @@ export default async (intro: IScene) => {
   await wait(0.5)
   await RyuDahee.talk('어..? 근데 저건.. 뭐지..?')
 
-  // 불 보기
-  await camera.focus(SeoulFire, 2)
+  // // 불 보기
+  await intro.camera.move(SeoulFire)
   await wait(2)
-  await camera.focus(RyuDahee, 2)
+  await intro.camera.move(RyuDahee)
+  intro.camera.target = RyuDahee
 
   // 불쪽으로 이동
-  await intro.objects.move(RyuDahee, { x: 32, y: 82 }, { speed: 3, focusing: true })
-  await intro.objects.move(RyuDahee, { x: 260, y: 82 }, { speed: 3, focusing: true })
+  await RyuDahee.move({ x: 32, y: 82 })
+  await RyuDahee.move({ x: 260, y: 82 })
+
   await RyuDahee.talk('아니 누구신데 여기서..')
   await RyuDahee.talk('꺄악! 불이다!!')
 
   // 허둥지둥
-  await intro.objects.move(RyuDahee, { x: 270, y: 82 }, { speed: 3, focusing: true })
+  await RyuDahee.move({ x: 270, y: 82 }, { speed: 3 })
   await wait(0.1)
-  await intro.objects.move(RyuDahee, { x: 250, y: 82 }, { speed: 3, focusing: true })
+  await RyuDahee.move({ x: 250, y: 82 }, { speed: 3 })
   await wait(0.1)
-  await intro.objects.move(RyuDahee, { x: 270, y: 82 }, { speed: 3, focusing: true })
+  await RyuDahee.move({ x: 270, y: 82 }, { speed: 3 })
   await wait(0.1)
-  await intro.objects.move(RyuDahee, { x: 250, y: 82 }, { speed: 3, focusing: true })
+  await RyuDahee.move({ x: 250, y: 82 }, { speed: 3 })
   await wait(0.1)
-  await intro.objects.move(RyuDahee, { x: 270, y: 82 }, { speed: 3, focusing: true })
+  await RyuDahee.move({ x: 270, y: 82 }, { speed: 3 })
   await wait(0.1)
-  await intro.objects.move(RyuDahee, { x: 250, y: 82 }, { speed: 3, focusing: true })
+  await RyuDahee.move({ x: 250, y: 82 }, { speed: 3 })
   await wait(0.1)
 
   // 커피 쏟기
-  await intro.objects.move(RyuDahee, { x: 326, y: 82 }, { speed: 3, focusing: true })
+  await RyuDahee.move({ x: 326, y: 82 }, { speed: 3 })
   await RyuDahee.talk('[손에 들고 있는 커피를 쏟았다]')
   await wait(1)
   await Ash.talk('이 불은 Seoul 의 불..')
@@ -66,13 +66,13 @@ export default async (intro: IScene) => {
   await RyuDahee.talk('(으아아!! 뭐라는거야? 당황하면 안돼! 그래! 소화기! 소화기를 찾아야해!)')
 
   // 소화기 보고 가져오기
-  await intro.objects.move(RyuDahee, { x: 270, y: 82 }, { speed: 3, focusing: true })
+  await RyuDahee.move({ x: 270, y: 82 }, { speed: 3 })
   await RyuDahee.talk('소화기!')
-  await intro.objects.move(RyuDahee, { x: 32, y: 82 }, { speed: 3, focusing: true })
+  await RyuDahee.move({ x: 32, y: 82 }, { speed: 3 })
   await wait(0.2)
   intro.objects.delete(feInOffice)
   await wait(0.2)
-  await intro.objects.move(RyuDahee, { x: 326, y: 82 }, { speed: 3, focusing: true })
+  await RyuDahee.move({ x: 326, y: 82 }, { speed: 3 })
   await RyuDahee.talk('[소화기를 사용하였다]')
   await RyuDahee.talk('제일인산암모늄을 끼얹어 주마!!')
   await wait(1)
@@ -101,9 +101,9 @@ export default async (intro: IScene) => {
 
   RyuDahee.directTo('left')
   await wait(0.5)
-  await camera.focus(CEO, 2)
+  await intro.camera.move(CEO)
   await wait(0.5)
-  await camera.focus(RyuDahee, 2)
+  await intro.camera.move(RyuDahee)
   await RyuDahee.talk('어..? 으아아악! 뭐.. 뭐야!!')
   await Ash.talk('그는 거대한 Seoul 을 보유하고 있던 자..')
   await Ash.talk('불이 꺼지면서 그가 가진 거대한 Seoul 은 Dark Seoul 이 되어 그를 차갑고 어두운 존재로 변형 시켰습니다.')

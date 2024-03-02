@@ -2,7 +2,7 @@ import { IObject } from 'iyagi/object'
 import { ITile } from 'iyagi/tile'
 
 const SPIRTE_IMAGE = {
-  url: '/assets/location/office/sprite.png',
+  url: '/assets/scene/office/map/sprite.png',
   scale: 2
 }
 

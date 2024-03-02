@@ -5,6 +5,7 @@ import Ash from '../../object/main/Ash'
 import RyuDahee from '../../object/main/RyuDahee'
 import SeoulFire from '../../object/main/SeoulFire'
 import CEO, { ceoBite } from '../../object/office/character/CEO'
+import { TITLE } from '../keys'
 import { createEscapeTiles, createTiles, createWalls, feInOffice, getPartitions } from './map'
 import talk from './talk'
 
@@ -20,6 +21,8 @@ SeoulFire.positionAt({ x: 360, y: 64 })
 RyuDahee.positionAt({ x: 32, y: 200 })
 
 const objectList = [
+  ...tiles1D,
+  ...exitTiles,
   ...walls,
   ...partitions,
   CEO,
@@ -31,7 +34,6 @@ const objectList = [
 
 const intro = new IScene({
   name: '인트로',
-  tiles: [...tiles1D, ...exitTiles],
   objects: objectList,
   take: async () => {
     await talk(intro)
@@ -48,7 +50,7 @@ const intro = new IScene({
 
     return await new Promise((resolve) => {
       const onExitTileIn = () => {
-        resolve(null)
+        resolve(TITLE)
       }
 
       exitTiles.forEach((tile) => {

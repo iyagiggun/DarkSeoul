@@ -39,8 +39,8 @@ module.exports = {
     }),
     new CircularDependencyPlugin({
       // options
-      exclude: /a\.js|node_modules/, // exclude node_modules
-      failOnError: true // fail the build on circular dependency
+      exclude: /node_modules/, // exclude node_modules
+      failOnError: true // fail the build on circular ,
     })
   ],
   devServer: {

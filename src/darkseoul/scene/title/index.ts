@@ -1,7 +1,7 @@
 import { IScene } from 'iyagi/scene'
 import { ITile } from 'iyagi/tile'
 import SeoulFire from '../../object/main/SeoulFire'
-import intro from '../intro'
+import { INTRO, OFFICE_PANTRY } from '../keys'
 
 const bg = new ITile({
   name: 'intro-bg',
@@ -12,15 +12,12 @@ const bg = new ITile({
 
 const title = new IScene({
   name: '타이틀 화면',
-  tiles: [bg],
-  objects: [SeoulFire],
+  objects: [bg, SeoulFire],
   take: async () => {
     SeoulFire.play()
-    console.error('title')
-
     return await new Promise((resolve) => {
       SeoulFire.event.tap = () => {
-        resolve(intro)
+        resolve(OFFICE_PANTRY)
       }
     })
   }
