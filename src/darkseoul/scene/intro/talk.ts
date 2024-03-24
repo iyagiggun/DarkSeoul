@@ -1,8 +1,8 @@
 import { wait } from 'iyagi/utils'
-import Ash from '../../object/main/Ash'
-import { RyuDahee } from '../../object/main/RyuDahee'
-import SeoulFire from '../../object/main/SeoulFire'
-import CEO from '../../object/office/character/CEO'
+import Ash from '../../resource/main/Ash'
+import { RyuDahee } from '../../resource/main/RyuDahee'
+import SeoulFire from '../../resource/main/SeoulFire'
+import CEO from '../../resource/office/character/CEO'
 import { feInOffice } from './map'
 import { type IScene } from 'iyagi/scene'
 

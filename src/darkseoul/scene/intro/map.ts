@@ -1,16 +1,18 @@
 import {
-  createExitTile,
   createOfficeTile,
-  createOfficeWallE,
+  createExitTile,
+  createOfficeWallNW,
+  createFireExtinguisher,
   createOfficeWallN,
   createOfficeWallNE,
-  createOfficeWallNW,
-  createOfficeWallS,
+  createOfficeWallE,
   createOfficeWallSE,
+  createOfficeWallS,
   createOfficeWallSW,
-  createOfficeWallW
-} from '../../object/office'
-import { createFireExtinguisher, getAPartition } from '../../object/office/object'
+  createOfficeWallW,
+  createOfficeShortDesk,
+  createOfficeChair
+} from '../../resource/office/object'
 
 const MAP_WIDTH = 14
 const MAP_HEIGHT = 18
@@ -58,6 +60,22 @@ export function createWalls () {
 }
 
 export const feInOffice = createFireExtinguisher(16, 54)
+
+function getAPartition (x: number, y: number) {
+  const deskList = new Array(3).fill(null)
+    .map((_, rowIdx) => new Array(2).fill(null)
+      .map((__, colIdx) => createOfficeShortDesk(x + (colIdx * 29), y + (rowIdx * 32), 'left')))
+
+  const chairList = new Array(3).fill(null)
+    .map((_, rowIdx) => new Array(2).fill(null)
+      .map((__, colIdx) => createOfficeChair(
+        x + (colIdx * 83) - 20,
+        y + rowIdx * 32 + 18,
+        colIdx === 0 ? 'right' : 'left'
+      )))
+
+  return [...deskList.flatMap((item) => item), ...chairList.flatMap((item) => item)]
+}
 
 export function getPartitions () {
   return [

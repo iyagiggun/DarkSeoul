@@ -1,6 +1,6 @@
 // import { createCharacter } from 'iyagi/dist/object/character';
 
-import { Character } from '../../object/character'
+import { Character } from '../../resource/character'
 
 const UNIT = 64
 const hitbox = { x: 16, y: 50, w: 32, h: 14 }

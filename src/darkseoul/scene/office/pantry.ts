@@ -3,7 +3,7 @@ import { IScene } from 'iyagi/scene'
 import { getOfficePantryTiles, getOfficePantryWalls } from './map/pantry'
 import { INTRO } from '../keys'
 import CrestfallenWarrior from '../../character/CrestfallenWarrior'
-import { RyuDahee, RyuDaheeController } from '../../object/main/RyuDahee'
+import { RyuDahee, RyuDaheeController } from '../../resource/main/RyuDahee'
 
 const tiles = getOfficePantryTiles()
 const walls = getOfficePantryWalls()

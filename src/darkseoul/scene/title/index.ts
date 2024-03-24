@@ -1,6 +1,6 @@
 import { IScene } from 'iyagi/scene'
 import { ITile } from 'iyagi/tile'
-import SeoulFire from '../../object/main/SeoulFire'
+import SeoulFire from '../../resource/main/SeoulFire'
 import { INTRO, OFFICE_PANTRY } from '../keys'
 
 const bg = new ITile({
@@ -17,7 +17,7 @@ const title = new IScene({
     SeoulFire.play()
     return await new Promise((resolve) => {
       SeoulFire.event.tap = () => {
-        resolve(OFFICE_PANTRY)
+        resolve(INTRO)
       }
     })
   }

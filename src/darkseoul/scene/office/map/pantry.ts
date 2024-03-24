@@ -1,5 +1,5 @@
 import { type IObject } from 'iyagi/object'
-import { createOfficeTile, createOfficeWallE, createOfficeWallN, createOfficeWallNE, createOfficeWallNW, createOfficeWallS, createOfficeWallSE, createOfficeWallSW, createOfficeWallW } from './commons'
+import { createOfficeTile, createOfficeWallE, createOfficeWallN, createOfficeWallNE, createOfficeWallNW, createOfficeWallS, createOfficeWallSE, createOfficeWallSW, createOfficeWallW } from '../../../resource/office/object'
 
 const MAP_HEIGHT = 10
 const MAP_WIDTH = 8
