@@ -1,6 +1,7 @@
 // import ICharacter from 'iyagi/object/character';
 
 import { Character } from '../../character'
+import { IPlayerController } from 'iyagi/controller'
 
 const WIDTH = 32
 const HEIGHT = 56
@@ -40,4 +41,9 @@ const RyuDahee = new Character({
   }
 })
 
-export default RyuDahee
+const RyuDaheeController = new IPlayerController(RyuDahee)
+RyuDaheeController.on('↓', () => {
+}).on('→↓←↑', () => {
+})
+
+export { RyuDahee, RyuDaheeController }

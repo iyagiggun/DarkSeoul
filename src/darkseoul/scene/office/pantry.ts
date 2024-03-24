@@ -2,8 +2,8 @@ import { devtools } from 'iyagi/devtools'
 import { IScene } from 'iyagi/scene'
 import { getOfficePantryTiles, getOfficePantryWalls } from './map/pantry'
 import { INTRO } from '../keys'
-import RyuDahee from '../../object/main/RyuDahee'
 import CrestfallenWarrior from '../../character/CrestfallenWarrior'
+import { RyuDahee, RyuDaheeController } from '../../object/main/RyuDahee'
 
 const tiles = getOfficePantryTiles()
 const walls = getOfficePantryWalls()
@@ -21,7 +21,7 @@ const OfficePantry = new IScene({
     walls.filter((tile) => tile.name.includes('office:wall:e:')).forEach((tile) => {
       devtools.colorize(tile)
     })
-    OfficePantry.control(RyuDahee)
+    RyuDaheeController.control()
     await new Promise<void>((resolve) => {
       setTimeout(() => {
         resolve()

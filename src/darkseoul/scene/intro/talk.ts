@@ -1,6 +1,6 @@
 import { wait } from 'iyagi/utils'
 import Ash from '../../object/main/Ash'
-import RyuDahee from '../../object/main/RyuDahee'
+import { RyuDahee } from '../../object/main/RyuDahee'
 import SeoulFire from '../../object/main/SeoulFire'
 import CEO from '../../object/office/character/CEO'
 import { feInOffice } from './map'
@@ -30,11 +30,10 @@ export default async (intro: IScene) => {
   await wait(0.5)
   await RyuDahee.talk('어..? 근데 저건.. 뭐지..?')
 
-  // // 불 보기
+  // 불 보기
   await intro.camera.move(SeoulFire)
   await wait(2)
   await intro.camera.move(RyuDahee)
-  intro.camera.target = RyuDahee
 
   // 불쪽으로 이동
   await RyuDahee.move({ x: 32, y: 82 })

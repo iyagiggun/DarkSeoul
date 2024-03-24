@@ -2,7 +2,7 @@ import { devtools } from 'iyagi/devtools'
 import { IBasicTracker } from 'iyagi/nai'
 import { IScene } from 'iyagi/scene'
 import Ash from '../../object/main/Ash'
-import RyuDahee from '../../object/main/RyuDahee'
+import { RyuDahee, RyuDaheeController } from '../../object/main/RyuDahee'
 import SeoulFire from '../../object/main/SeoulFire'
 import CEO, { ceoBite } from '../../object/office/character/CEO'
 import { TITLE } from '../keys'
@@ -46,7 +46,8 @@ const intro = new IScene({
         ceoBite(intro)
       }
     })
-    intro.control(RyuDahee)
+
+    RyuDaheeController.control()
 
     return await new Promise((resolve) => {
       const onExitTileIn = () => {
