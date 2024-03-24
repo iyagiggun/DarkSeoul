@@ -9,10 +9,10 @@ const HEIGHT = 56
 const RyuDahee = new Character({
   name: '류다희',
   photoMap: {
-    default: '/assets/object/main/RyuDahee/photo.png'
+    default: '/assets/resource/main/RyuDahee/photo.png'
   },
   image: {
-    url: '/assets/object/main/RyuDahee/sprite.png'
+    url: '/assets/resource/main/RyuDahee/sprite.png'
   },
   motions: {
     default: {

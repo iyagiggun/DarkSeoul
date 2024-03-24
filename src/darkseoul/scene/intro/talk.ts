@@ -36,28 +36,28 @@ export default async (intro: IScene) => {
   await intro.camera.move(RyuDahee)
 
   // 불쪽으로 이동
-  await RyuDahee.move({ x: 32, y: 82 })
-  await RyuDahee.move({ x: 260, y: 82 })
+  await RyuDahee.move({ x: 32, y: 82 }, { trace: true })
+  await RyuDahee.move({ x: 260, y: 82 }, { trace: true })
 
   await RyuDahee.talk('아니 누구신데 여기서..')
   await RyuDahee.talk('꺄악! 불이다!!')
 
   // 허둥지둥
-  await RyuDahee.move({ x: 270, y: 82 }, { speed: 3 })
+  await RyuDahee.move({ x: 270, y: 82 }, { speed: 3, trace: true })
   await wait(0.1)
-  await RyuDahee.move({ x: 250, y: 82 }, { speed: 3 })
+  await RyuDahee.move({ x: 250, y: 82 }, { speed: 3, trace: true })
   await wait(0.1)
-  await RyuDahee.move({ x: 270, y: 82 }, { speed: 3 })
+  await RyuDahee.move({ x: 270, y: 82 }, { speed: 3, trace: true })
   await wait(0.1)
-  await RyuDahee.move({ x: 250, y: 82 }, { speed: 3 })
+  await RyuDahee.move({ x: 250, y: 82 }, { speed: 3, trace: true })
   await wait(0.1)
-  await RyuDahee.move({ x: 270, y: 82 }, { speed: 3 })
+  await RyuDahee.move({ x: 270, y: 82 }, { speed: 3, trace: true })
   await wait(0.1)
-  await RyuDahee.move({ x: 250, y: 82 }, { speed: 3 })
+  await RyuDahee.move({ x: 250, y: 82 }, { speed: 3, trace: true })
   await wait(0.1)
 
   // 커피 쏟기
-  await RyuDahee.move({ x: 326, y: 82 }, { speed: 3 })
+  await RyuDahee.move({ x: 326, y: 82 }, { speed: 3, trace: true })
   await RyuDahee.talk('[손에 들고 있는 커피를 쏟았다]')
   await wait(1)
   await Ash.talk('이 불은 Seoul 의 불..')
@@ -65,13 +65,13 @@ export default async (intro: IScene) => {
   await RyuDahee.talk('(으아아!! 뭐라는거야? 당황하면 안돼! 그래! 소화기! 소화기를 찾아야해!)')
 
   // 소화기 보고 가져오기
-  await RyuDahee.move({ x: 270, y: 82 }, { speed: 3 })
+  await RyuDahee.move({ x: 270, y: 82 }, { speed: 3, trace: true })
   await RyuDahee.talk('소화기!')
-  await RyuDahee.move({ x: 32, y: 82 }, { speed: 3 })
+  await RyuDahee.move({ x: 32, y: 82 }, { speed: 3, trace: true })
   await wait(0.2)
   intro.objects.delete(feInOffice)
   await wait(0.2)
-  await RyuDahee.move({ x: 326, y: 82 }, { speed: 3 })
+  await RyuDahee.move({ x: 326, y: 82 }, { speed: 3, trace: true })
   await RyuDahee.talk('[소화기를 사용하였다]')
   await RyuDahee.talk('제일인산암모늄을 끼얹어 주마!!')
   await wait(1)

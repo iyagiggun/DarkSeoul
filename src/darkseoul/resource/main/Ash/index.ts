@@ -6,10 +6,10 @@ const HEIGHT = 56
 const Ash = new Character({
   name: '하얀 잿빛의 여인',
   photoMap: {
-    default: '/assets/object/main/Ash/photo.png'
+    default: '/assets/resource/main/Ash/photo.png'
   },
   image: {
-    url: '/assets/object/main/Ash/sprite.png'
+    url: '/assets/resource/main/Ash/sprite.png'
   },
   motions: {
     default: {

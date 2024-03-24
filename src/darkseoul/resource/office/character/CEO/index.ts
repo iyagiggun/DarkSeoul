@@ -9,7 +9,7 @@ const hitbox = { x: 16, y: 50, w: 32, h: 14 }
 const CEO = new Character({
   name: 'CEO',
   image: {
-    url: '/assets/object/office/character/CEO/sprite.png'
+    url: '/assets/resource/office/character/CEO/sprite.png'
   },
   motions: {
     default: {

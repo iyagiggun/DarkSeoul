@@ -4,7 +4,7 @@ import { ITile } from 'iyagi/tile'
 type Direction = 'up' | 'down' | 'left' | 'right'
 
 const SPRITE_IMAGE = {
-  url: '/assets/object/office/sprite.png'
+  url: '/assets/resource/office/sprite.png'
 }
 
 export function createOfficeShortDesk (x: number, y: number, dir: Direction) {
